@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  app:
+    image: mcr.microsoft.com/dotnet/aspnet:6.0
+    ports:
+      - 7048:7048
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    command: dotnet IDentyfica.dll
+
+  db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=stemberg12
+      - POSTGRES_DB=identyfica
